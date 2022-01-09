@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Block\Address\Renderer\DefaultRenderer"
+                type="Delgraf\RegionCode\Block\Address\Renderer\DefaultRenderer" />
+
+    <!-- add region code in store address-->
+    <type name="Magento\Store\Model\Address\Renderer">
+        <plugin name="addRegionCode" type="Delgraf\RegionCode\Plugin\Model\Address\Renderer" sortOrder="1"/>
+    </type>
+</config>
