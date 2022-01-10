@@ -1,6 +1,6 @@
 {
     "name": "delgraf/module-regioncode",
-    "description": "Enable region code display",
+    "description": "Region code in customer address templates and store address",
     "type": "magento2-module",
     "version": "1.0.0",
     "license": "GPL-3.0",
