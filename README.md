@@ -1,6 +1,6 @@
 # Magento2 Module Delgraf RegionCode
 
-    ``delgraf/module-regioncode``
+    `delgraf/module-regioncode`
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -10,7 +10,8 @@
 
 
 ## Main Functionalities
-Enable region code display
+ - Enable region code in customer address templates using {{var region_id}}
+ - Add region code in store address
 
 ## Installation
 \* = in production please use the `--keep-generated` option
@@ -24,6 +25,7 @@ Enable region code display
 
 ### Type 2: Composer
 
+ - Go to Magento2 root folder
  - Install the module composer by running `composer require delgraf/module-regioncode`
  - Enable the module by running `php bin/magento module:enable Delgraf_RegionCode`
  - Apply database updates by running `php bin/magento setup:upgrade`\*

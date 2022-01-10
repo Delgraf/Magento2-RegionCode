@@ -6,10 +6,10 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Customer\Block\Address\Renderer\DefaultRenderer"
-                type="Delgraf\RegionCode\Block\Address\Renderer\DefaultRenderer" />
+    <!-- Enable region code in customer address templates using {{var region_id}} -->
+    <preference for="Magento\Customer\Block\Address\Renderer\DefaultRenderer" type="Delgraf\RegionCode\Block\Address\Renderer\DefaultRenderer" />
 
-    <!-- add region code in store address-->
+    <!-- Add region code in store address -->
     <type name="Magento\Store\Model\Address\Renderer">
         <plugin name="addRegionCode" type="Delgraf\RegionCode\Plugin\Model\Address\Renderer" sortOrder="1"/>
     </type>
