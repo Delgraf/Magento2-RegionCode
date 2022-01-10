@@ -1,6 +1,6 @@
 # Magento2 Module Delgraf RegionCode
 
-    `delgraf/module-regioncode`
+    ``delgraf/module-regioncode``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
@@ -16,7 +16,7 @@
 ### Type 1: Composer
 
  - Go to Magento2 root folder
- - Install the module composer by running ```composer require delgraf/module-regioncode```
+ - Install the module composer by running `composer require delgraf/module-regioncode`
  - Enable the module by running `php bin/magento module:enable Delgraf_RegionCode`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
