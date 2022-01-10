@@ -16,17 +16,17 @@
 ## Installation
 \* = in production please use the `--keep-generated` option
 
-### Type 1: Zip file
+### Type 1: Composer
 
- - Unzip the zip file in `app/code/Delgraf`
+ - Go to Magento2 root folder
+ - Install the module composer by running `composer require delgraf/module-regioncode`
  - Enable the module by running `php bin/magento module:enable Delgraf_RegionCode`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 
-### Type 2: Composer
+### Type 2: Zip file
 
- - Go to Magento2 root folder
- - Install the module composer by running `composer require delgraf/module-regioncode`
+ - Unzip the zip file in `app/code/Delgraf`
  - Enable the module by running `php bin/magento module:enable Delgraf_RegionCode`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`

@@ -34,6 +34,7 @@ class DefaultRenderer extends AbstractBlock implements RendererInterface
      */
     protected $_countryFactory;
 
+    // here I added regionFactory
     /**
      * @var \Magento\Directory\Model\RegionFactory
      */
@@ -49,6 +50,7 @@ class DefaultRenderer extends AbstractBlock implements RendererInterface
      */
     protected $addressMapper;
 
+    // here I added regionFactory
     /**
      * Constructor
      *
@@ -180,6 +182,7 @@ class DefaultRenderer extends AbstractBlock implements RendererInterface
                 continue;
             }
             $attributeCode = $attributeMetadata->getAttributeCode();
+            // here I added region_id
             if ($attributeCode == 'country_id' && isset($addressAttributes['country_id'])) {
                 $data['country'] = $this->_countryFactory->create()
                     ->loadByCode($addressAttributes['country_id'])

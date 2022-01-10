@@ -3,7 +3,6 @@
  * Copyright © Delgraf. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 namespace Delgraf\RegionCode\Plugin\Model\Address;
 
 use Magento\Framework\Event\ManagerInterface as EventManager;
@@ -15,8 +14,7 @@ use Magento\Directory\Model\RegionFactory;
  */
 class Renderer
 {
-    // here I changed region to region_code and added span classes as 
-    // I wanted to apply some css
+    // here I changed region to region_code and added span classes as I wanted to apply some css
     const DEFAULT_TEMPLATE = "<span class='name'>{{var name}}</span>\n" .
         "<span class='street1'>{{var street_line1}}</span>\n" .
         "{{depend street_line2}}<span class='street2'>{{var street_line2}}</span>\n{{/depend}}" .
@@ -66,7 +64,7 @@ class Renderer
         
         $this->eventManager->dispatch('store_address_format', ['type' => $type, 'store_info' => $storeInfo]);
         $regionCode = $this->getRegionData($storeInfo->getRegionId());
-        //here I am setting region_code in data.
+        // here I am setting region_code in data.
         $storeInfo->setData('region_code', $regionCode);
         $address = $this->filterManager->template(
             $this->template,
@@ -78,8 +76,9 @@ class Renderer
         return $address;
     }
     
+    // here I added getRegionData
     /**
-     * get region code
+     * Get region code
      * @param int $regionId
      * @return string
      */
