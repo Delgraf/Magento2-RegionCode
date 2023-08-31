@@ -20,6 +20,12 @@ class Renderer
         "{{depend street_line2}}<span class='street2'>{{var street_line2}}</span>\n{{/depend}}" .
         "{{depend postcode}}<span class='post'>{{var postcode}}</span> {{/depend}}<span class='city'>{{var city}}</span>{{depend region_code}} <span class='region'>({{var region_code}})</span>{{/depend}}\n" .
         "<span class='country'>{{var country}}</span>";
+
+    /**
+     * @var RegionFactory
+     */
+    protected $regionFactory;
+    
     /**
      * @var EventManager
      */
@@ -37,9 +43,10 @@ class Renderer
 
     /**
      * Constructor
+     *
      * @param RegionFactory $regionFactory
-     * @param RegionFactory $eventManager
-     * @param RegionFactory $filterManager
+     * @param EventManager $eventManager
+     * @param FilterManager $filterManager
      * @param string $template
      */
     public function __construct(
@@ -59,9 +66,9 @@ class Renderer
      * @param callable $proceed
      * @return \Magento\Store\Model\Address\Renderer
      */
-    public function aroundFormat(\Magento\Store\Model\Address\Renderer $result, callable $proceed, $storeInfo, $type = 'html')
-    {
-        
+    public function aroundFormat(
+        \Magento\Store\Model\Address\Renderer $result, callable $proceed, $storeInfo, $type = 'html'
+    ) {
         $this->eventManager->dispatch('store_address_format', ['type' => $type, 'store_info' => $storeInfo]);
         $regionCode = $this->getRegionData($storeInfo->getRegionId());
         // here I am setting region_code in data.
@@ -79,11 +86,14 @@ class Renderer
     // here I added getRegionData
     /**
      * Get region code
+     *
      * @param int $regionId
      * @return string
      */
-    public function getRegionData( $regionId ){
-    $region = $this->regionFactory->create()->load($regionId);
-    return $region->getData('code');
+    public function getRegionData(
+        $regionId
+    ) {
+        $region = $this->regionFactory->create()->load($regionId);
+        return $region->getData('code');
     }
 }
